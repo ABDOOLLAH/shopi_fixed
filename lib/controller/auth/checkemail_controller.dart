@@ -4,7 +4,7 @@ import 'package:shopi/core/constant/routes.dart';
 
 abstract class CheckemailController  extends GetxController{
   checkemail();
-  goToSuccessSignUp();
+  goToVerfiyCode();
 }
 class CheckemailControllerImp extends CheckemailController{
   late TextEditingController email;
@@ -13,8 +13,8 @@ class CheckemailControllerImp extends CheckemailController{
 
   }
   @override
-  goToSuccessSignUp() {
-    Get.offNamed(AppRoutes.verfiyCode);
+  goToVerfiyCode() {
+    Get.offNamed(AppRoutes.verfiyCodesignup);
   }
   @override
   void onInit() {

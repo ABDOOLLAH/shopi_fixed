@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopi/core/constant/color.dart';
-import 'package:shopi/view/widget/onboarding/auth/logoauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtexttitleauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextbodyauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextformauth.dart';
@@ -15,7 +14,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    SingupControllerImp controller = Get.put(SingupControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -70,7 +69,7 @@ class SignUp extends StatelessWidget {
             Custombuttonauth(
               text: "Sign Up",
               onPressed: () {
-                // TODO: Handle sign in logic
+                controller.singup();
               },
             ),
             const SizedBox(height: 20),

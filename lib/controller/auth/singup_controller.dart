@@ -3,17 +3,18 @@ import 'package:get/get.dart';
 import 'package:shopi/core/constant/routes.dart';
 
 abstract class SingupController extends GetxController{
-  singuo();
+  singup();
   goToSignIn();
 }
-class LoginControllerImp extends SingupController{
+class SingupControllerImp extends SingupController{
   late TextEditingController email;
   late TextEditingController username;
   late TextEditingController phone;
   late TextEditingController password;
   @override
-  singuo() {
+  singup() {
 
+    Get.offNamed(AppRoutes.checkemail);
   }
   @override
   goToSignIn() {

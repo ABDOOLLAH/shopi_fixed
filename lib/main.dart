@@ -6,7 +6,7 @@ import 'package:shopi/services/services.dart';
 import 'package:shopi/routes.dart';
 
 import 'package:shopi/localization/translation.dart';
-import 'package:shopi/localization/changelocal.dart';  // مصدر LocaleController
+import 'package:shopi/localization/changelocal.dart'; // مصدر LocaleController
 import 'package:shopi/localization/language.dart';
 import 'package:shopi/test.dart';
 
@@ -22,32 +22,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     LocaleController controller = Get.put(LocaleController());
+    LocaleController controller = Get.put(LocaleController());
 
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title:" chopi ",
-      translations: MyTranslation(),    // ملفات الترجمة
-      locale: controller.language,      // اللغة المختارة
-      theme: ThemeData(
-        fontFamily: 'Cairo',
-        textTheme: const TextTheme(
-          titleLarge: TextStyle(
-            color: AppColorApp.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-          bodyLarge: TextStyle(
-            height: 2,
-            color: AppColorApp.grey,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home:Language(),
-      //const Language(),  // يفترض أن تعرّف هذه الكلاس في language.dart
-      routes: routes,
+        debugShowCheckedModeBanner: false,
+        title: " chopi ",
+        translations: MyTranslation(),
+        locale: controller.language,
+        theme: controller.apptheme,
+        home:const Language(),routes
+    :
+    routes
+    ,
     );
   }
 }

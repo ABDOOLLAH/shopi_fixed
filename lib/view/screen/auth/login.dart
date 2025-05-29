@@ -78,7 +78,7 @@ class Login extends StatelessWidget {
               text: "Don't have an account? ",
               texttow: "Sign Up",
               onTap: () {
-                controller.goToSignUp;
+                controller.goToSignUp();
               },
             ),
           ],
