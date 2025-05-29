@@ -1,0 +1,87 @@
+name: shopi
+description: A new Flutter project.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.7.2 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Time and Date
+  intl: 0.19.0
+  # HTTP
+  http: ^1.4.0
+
+  # Image
+  cached_network_image: ^3.2.0
+  # image_picker: ^1.1.2
+  #image_pickers: ^2.0.6
+
+  # Animation
+  show_up_animation: ^2.1.2
+  auto_animated: ^3.2.0
+
+  # Google Maps
+  flutter_polyline_points: ^2.1.0
+  google_maps_flutter: ^2.12.2
+  geolocator_android: ^5.0.1+1
+  geocoding: ^3.0.0
+
+  # Firebase & Notifications
+  firebase_messaging: ^15.2.6
+  firebase_core: ^3.13.1
+
+  # Local Data
+  sqflite: ^2.4.2
+  shared_preferences: ^2.5.3
+  path: ^1.9.1
+
+  # QR Code
+  qr_flutter: ^4.0.0
+
+  # UI
+  grouped_list: ^6.0.0
+  url_launcher: ^6.3.1
+  dropdown_search: ^6.0.2
+  badges: ^3.1.2
+  flutter_svg: ^2.1.0
+  font_awesome_flutter: ^10.8.0
+  fluttericon: ^2.0.0
+
+  # Utils
+  dartz: ^0.10.1
+  device_preview: ^1.2.0
+  responsive_builder: ^0.7.1
+
+  # Auth
+  google_sign_in: ^6.3.0
+
+  # State Management
+  get: ^4.7.2
+  jiffy: ^6.3.2
+  flutter_local_notifications: ^19.2.1
+  cloud_firestore: ^5.6.8
+  flutter_otp_text_field: ^1.5.1+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo/Cairo-Bold.ttf
+          weight: 700
+
