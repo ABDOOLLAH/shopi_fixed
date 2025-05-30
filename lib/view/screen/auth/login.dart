@@ -9,6 +9,7 @@ import 'package:shopi/view/widget/onboarding/auth/customtextformauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 
 import '../../../controller/auth/login_controller.dart';
+import '../../../core/functions/alertexitapp.dart';
 import '../../widget/onboarding/auth/textsignup.dart';
 
 class Login extends StatelessWidget {
@@ -23,14 +24,20 @@ class Login extends StatelessWidget {
         elevation: 0,
         title: Text(
           "Sign In",
-          style: Theme.of(
+          style: Theme
+              .of(
             context,
-          ).textTheme.titleLarge!.copyWith(color: AppColorApp.grey),
+          )
+              .textTheme
+              .titleLarge!
+              .copyWith(color: AppColorApp.grey),
         ),
       ),
       body: GetBuilder<LoginControllerImp>(
         builder:
-            (controller) => Container(
+            (controller) =>
+            WillPopScope(
+              onWillPop: alertExitApp,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15,
@@ -60,16 +67,22 @@ class Login extends StatelessWidget {
                         mycontroller: controller.email,
                       ),
                       const SizedBox(height: 20),
-                      Customtextformauth(
-                        isNumber: false,
-                        valid: (val) {
-                          return validInput(val!, 5, 30, "password");
-                        },
-                        hinttext: "Enter Your Password",
-                        labeltext: "Password",
-                        iconData: Icons.lock_outline,
-                        mycontroller: controller.password,
-                      ),
+
+                      GetBuilder<LoginControllerImp>(builder: (controller) =>
+                          Customtextformauth(
+                            isNumber: false,
+                            valid: (val) {
+                              return validInput(val!, 5, 30, "password");
+                            },
+                            hinttext: "Enter Your Password",
+                            labeltext: "Password",
+                            obscureText: controller.isshowpassword,
+                            onTapIcon: () {
+                              controller.showpassword();
+                            },
+                            iconData: Icons.lock_outline,
+                            mycontroller: controller.password,
+                          ))
                       const SizedBox(height: 40),
                       InkWell(
                         onTap: () {
