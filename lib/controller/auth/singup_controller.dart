@@ -3,7 +3,10 @@ import 'package:get/get.dart';
 import 'package:shopi/core/constant/routes.dart';
 
 abstract class SingupController extends GetxController{
+  GlobalKey<FormState> formstate=GlobalKey<FormState>();
+
   singup();
+  signuoV();
   goToSignIn();
 }
 class SingupControllerImp extends SingupController{
@@ -12,9 +15,17 @@ class SingupControllerImp extends SingupController{
   late TextEditingController phone;
   late TextEditingController password;
   @override
-  singup() {
+  signuoV() {
+    // TODO: implement signuoV
 
-    Get.offNamed(AppRoutes.checkemail);
+  }
+  @override
+  singup() {
+    var formdate=formstate.currentState;
+    if(formdate!.validate()){
+      Get.offNamed(AppRoutes.verfiyCodesignup);
+    }else{}
+
   }
   @override
   goToSignIn() {

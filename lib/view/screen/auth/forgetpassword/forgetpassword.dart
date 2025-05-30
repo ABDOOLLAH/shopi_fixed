@@ -8,6 +8,7 @@ import 'package:shopi/view/widget/onboarding/auth/customtextformauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 
 import '../../../../../controller/auth/singup_controller.dart';
+import '../../../../core/functions/validinput.dart';
 import '../../../widget/onboarding/auth/textsignup.dart';
 import '../../../../controller/auth/forgetpassword_controller.dart';
 
@@ -41,7 +42,10 @@ class ForgetPassword extends StatelessWidget {
             ),
 
             Customtextformauth(
-              hinttext: "Enter Your Email",
+              isNumber: false,
+              valid: (val) {
+                return validInput(val!, 5, 100, "email");
+              },              hinttext: "Enter Your Email",
               labeltext: "Email",
               iconData: Icons.email_outlined,
               mycontroller: controller.email,

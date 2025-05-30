@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopi/core/constant/color.dart';
+import 'package:shopi/core/functions/validinput.dart';
 import 'package:shopi/view/widget/onboarding/auth/logoauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtexttitleauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextbodyauth.dart';
@@ -15,7 +16,6 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -28,61 +28,81 @@ class Login extends StatelessWidget {
           ).textTheme.titleLarge!.copyWith(color: AppColorApp.grey),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
-        child: ListView(
-          children: [
-            const Logoauth(),
-            const SizedBox(height: 20),
-            const Customtexttitleauth(text: "Welcome Back"),
-            const SizedBox(height: 8),
-            const Customtextbodyauth(
-              text: "Sign in with your Email and Password",
-            ),
-            const SizedBox(height: 15),
-             Customtextformauth(
-              hinttext: "Enter Your Email",
-              labeltext: "Email",
-              iconData: Icons.email_outlined,
-              mycontroller: controller.email,
-            ),
-            const SizedBox(height: 20),
-             Customtextformauth(
-              hinttext: "Enter Your Password",
-              labeltext: "Password",
-              iconData: Icons.lock_outline,
-              mycontroller: controller.password,
-            ),
-            const SizedBox(height: 40),
-            InkWell(
-              onTap: (){
-                controller.goToForgetPassword();
-              },
-              child: const Text(
-                "Forget Password?",
-                style: TextStyle(
-                  color: AppColorApp.primaryColor,
-                  fontWeight: FontWeight.bold,
+      body: GetBuilder<LoginControllerImp>(
+        builder:
+            (controller) => Container(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 30,
+                ),
+                child: Form(
+                  key: controller.formstate,
+                  child: ListView(
+                    children: [
+                      const Logoauth(),
+                      const SizedBox(height: 20),
+                      const Customtexttitleauth(text: "Welcome Back"),
+                      const SizedBox(height: 8),
+                      const Customtextbodyauth(
+                        text: "Sign in with your Email and Password",
+                      ),
+                      const SizedBox(height: 15),
+                      Customtextformauth(
+                        isNumber: false,
+
+                        valid: (val) {
+                          return validInput(val!, 5, 100, "email");
+                        },
+                        hinttext: "Enter Your Email",
+                        labeltext: "Email",
+                        iconData: Icons.email_outlined,
+                        mycontroller: controller.email,
+                      ),
+                      const SizedBox(height: 20),
+                      Customtextformauth(
+                        isNumber: false,
+                        valid: (val) {
+                          return validInput(val!, 5, 30, "password");
+                        },
+                        hinttext: "Enter Your Password",
+                        labeltext: "Password",
+                        iconData: Icons.lock_outline,
+                        mycontroller: controller.password,
+                      ),
+                      const SizedBox(height: 40),
+                      InkWell(
+                        onTap: () {
+                          controller.goToForgetPassword();
+                        },
+                        child: const Text(
+                          "Forget Password?",
+                          style: TextStyle(
+                            color: AppColorApp.primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Custombuttonauth(
+                        text: "Sign In",
+                        onPressed: () {
+                          controller.login();
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      Textsignup(
+                        text: "Don't have an account? ",
+                        texttow: "Sign Up",
+                        onTap: () {
+                          controller.goToSignUp();
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            Custombuttonauth(
-              text: "Sign In",
-              onPressed: () {
-                // TODO: Handle sign in logic
-              },
-            ),
-            const SizedBox(height: 20),
-            Textsignup(
-              text: "Don't have an account? ",
-              texttow: "Sign Up",
-              onTap: () {
-                controller.goToSignUp();
-              },
-            ),
-          ],
-        ),
       ),
     );
   }

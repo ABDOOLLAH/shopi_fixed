@@ -9,6 +9,7 @@ import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 
 import '../../../../../controller/auth/singup_controller.dart';
 import '../../../../controller/auth/resetpassword_controller.dart';
+import '../../../../core/functions/validinput.dart';
 import '../../../widget/onboarding/auth/textsignup.dart';
 import '../../../../controller/auth/forgetpassword_controller.dart';
 
@@ -17,7 +18,9 @@ class Resetpassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResetpasswordControllerImp controller = Get.put(ResetpasswordControllerImp());
+    ResetpasswordControllerImp controller = Get.put(
+      ResetpasswordControllerImp(),
+    );
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -37,17 +40,25 @@ class Resetpassword extends StatelessWidget {
             const SizedBox(height: 20),
             const Customtexttitleauth(text: "New Password"),
             const SizedBox(height: 8),
-            const Customtextbodyauth(
-              text: "Please enter new  Password",
-            ),
+            const Customtextbodyauth(text: "Please enter new  Password"),
 
             Customtextformauth(
+              isNumber: false,
+
+              valid: (val) {
+                return validInput(val!, 5, 33, "password");
+              },
               hinttext: "Enter Your New Password",
               labeltext: "Password",
               iconData: Icons.email_outlined,
               mycontroller: controller.password,
             ),
             Customtextformauth(
+              isNumber: false,
+
+              valid: (val) {
+                return validInput(val!, 5, 33, "repassword");
+              },
               hinttext: "Re Enter Your New Password",
               labeltext: "Password",
               iconData: Icons.email_outlined,
@@ -61,7 +72,6 @@ class Resetpassword extends StatelessWidget {
                 controller.goToSuccessResetPassword();
               },
             ),
-
           ],
         ),
       ),

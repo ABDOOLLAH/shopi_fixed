@@ -9,6 +9,7 @@ import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 
 import '../../../../controller/auth/forgetpassword_controller.dart';
 import '../../../controller/auth/checkemail_controller.dart';
+import '../../../core/functions/validinput.dart';
 
 class Checkemail extends StatelessWidget {
   const Checkemail({Key? key}) : super(key: key);
@@ -40,6 +41,11 @@ class Checkemail extends StatelessWidget {
             ),
 
             Customtextformauth(
+              isNumber: false,
+
+              valid: (val) {
+                return validInput(val!, 5, 100, "email");
+              },
               hinttext: "Enter Your Email",
               labeltext: "Email",
               iconData: Icons.email_outlined,

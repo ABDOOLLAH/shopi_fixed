@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopi/binding.dart';
 
 import 'package:shopi/core/constant/color.dart';
 import 'package:shopi/services/services.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         translations: MyTranslation(),
         locale: controller.language,
         theme: controller.apptheme,
+        initialBinding: MyBinding(),
         home:const Language(),routes
     :
     routes
