@@ -6,7 +6,7 @@ import 'package:shopi/data/datesource/static/remot/test_data.dart';
 import '../core/functions/handlingdatecontroller.dart';
 
 class TestController extends GetxController {
-  TestData testData = TestData(Get.find());
+  TestData testData = TestData(Get.find()); 
   List date = [];
   late Statusrequest statusrequest;
 
