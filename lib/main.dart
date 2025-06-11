@@ -11,7 +11,6 @@ import 'package:shopi/localization/changelocal.dart'; // مصدر LocaleControll
 import 'package:shopi/localization/language.dart';
 import 'package:shopi/test.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Get.putAsync(() => MyServices().init());
@@ -26,16 +25,13 @@ class MyApp extends StatelessWidget {
     LocaleController controller = Get.put(LocaleController());
 
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: " chopi ",
-        translations: MyTranslation(),
-        locale: controller.language,
-        theme: controller.apptheme,
-        initialBinding: MyBinding(),
-        home:const Language(),routes
-    :
-    routes
-    ,
+      debugShowCheckedModeBanner: false,
+      title: " chopi ",
+      translations: MyTranslation(),
+      locale: controller.language,
+      theme: controller.apptheme,
+      initialBinding: MyBinding(),
+      getPages: routes,
     );
   }
 }
