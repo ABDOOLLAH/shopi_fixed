@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:shopi/core/middlware/mymiddlware.dart';
 import 'package:shopi/localization/Language.dart';
+import 'package:shopi/test_view.dart';
 import 'package:shopi/view/screen/OnBoarding.dart';
 import 'package:shopi/view/screen/auth/forgetpassword/success_resetpassword.dart';
 import 'package:shopi/view/screen/auth/forgetpassword/verifycodesignup.dart';
