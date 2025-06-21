@@ -8,7 +8,7 @@ class TestData {
   TestData(this.crud);
 
   getData() async {
-    var response = await crud.postDate(Applink.test, {});
-   return response.fold((1)=>1, (r) => r);
+    var response = await crud.postData(Applink.test, {});
+    return response.fold((l) => l, (r) => r);
   }
 }

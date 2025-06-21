@@ -24,19 +24,14 @@ class Login extends StatelessWidget {
         elevation: 0,
         title: Text(
           "Sign In",
-          style: Theme
-              .of(
+          style: Theme.of(
             context,
-          )
-              .textTheme
-              .titleLarge!
-              .copyWith(color: AppColorApp.grey),
+          ).textTheme.titleLarge!.copyWith(color: AppColorApp.grey),
         ),
       ),
       body: GetBuilder<LoginControllerImp>(
         builder:
-            (controller) =>
-            WillPopScope(
+            (controller) => WillPopScope(
               onWillPop: alertExitApp,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
@@ -68,21 +63,23 @@ class Login extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
 
-                      GetBuilder<LoginControllerImp>(builder: (controller) =>
-                          Customtextformauth(
-                            isNumber: false,
-                            valid: (val) {
-                              return validInput(val!, 5, 30, "password");
-                            },
-                            hinttext: "Enter Your Password",
-                            labeltext: "Password",
-                            obscureText: controller.isshowpassword,
-                            onTapIcon: () {
-                              controller.showpassword();
-                            },
-                            iconData: Icons.lock_outline,
-                            mycontroller: controller.password,
-                          ))
+                      GetBuilder<LoginControllerImp>(
+                        builder:
+                            (controller) => Customtextformauth(
+                              isNumber: false,
+                              valid: (val) {
+                                return validInput(val!, 5, 30, "password");
+                              },
+                              hinttext: "Enter Your Password",
+                              labeltext: "Password",
+                              obscureText: controller.isshowpassword,
+                              onTapIcon: () {
+                                controller.showpassword();
+                              },
+                              iconData: Icons.lock_outline,
+                              mycontroller: controller.password,
+                            ),
+                      ),
                       const SizedBox(height: 40),
                       InkWell(
                         onTap: () {

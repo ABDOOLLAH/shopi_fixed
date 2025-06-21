@@ -1,17 +1,19 @@
-import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:shopi/core/constant/routes.dart';
-import 'package:shopi/services/services.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class MyMiddlWare extends GetMiddleware {
+import '../../services/services.dart';
+
+class MyMiddleWare extends GetMiddleware {
   @override
   int? get priority => 1;
-  MyServices myServices = Get.find();
+
+  MyServices myServices = Get.find() ;
 
   @override
   RouteSettings? redirect(String? route) {
-    if (myServices.sharedPreferences.setString("onboarding") == "1") {
-      return const RouteSettings(name: AppRoutes.login);
+    if(myServices.sharedPreferences.getString("onboarding") == "1"){
+      return RouteSettings(name: AppRoutes.login) ;
     }
   }
 }

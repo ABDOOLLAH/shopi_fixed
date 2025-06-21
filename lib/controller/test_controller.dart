@@ -1,32 +1,30 @@
 import 'package:get/get.dart';
-import 'package:http/http.dart';
-import 'package:shopi/core/class/statusrequest.dart';
-import 'package:shopi/data/datesource/static/remot/test_data.dart';
 
+import '../core/class/statusrequest.dart';
 import '../core/functions/handlingdatecontroller.dart';
+import '../data/datesource/static/remot/test_data.dart';
 
 class TestController extends GetxController {
   TestData testData = TestData(Get.find());
-  List date = [];
-  late Statusrequest statusrequest;
 
-  getDate() async {
-    statusrequest = Statusrequest.loading;
+  List data = [];
+
+  late StatusRequest statusRequest;
+
+  getData() async {
+    statusRequest = StatusRequest.loading;
     var response = await testData.getData();
-    statusrequest = handlingDate(response);
-
-    if (Statusrequest.success == statusrequest) {
-      if (response['status'] == "success") {
-        date.addAll(response['date']);
-      } else {
-        statusrequest = Statusrequest.failure;
-      }
+    print("=============================== Controller $response ") ;
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      data.addAll(response['data']);
     }
     update();
-    @override
-    void onInit() {
-      getDate();
-      super.onInit();
-    }
+  }
+
+  @override
+  void onInit() {
+    getData();
+    super.onInit();
   }
 }
