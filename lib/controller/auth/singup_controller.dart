@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 import 'package:shopi/core/constant/routes.dart';
 import 'package:shopi/core/functions/handlingdatecontroller.dart';
 import 'package:shopi/core/class/statusrequest.dart';
-import 'package:shopi/core/functions/handlingdatecontroller.dart';
 import 'package:shopi/data/datesource/static/remot/auth/signup.dart';
-import '../../core/class/statusrequest.dart';
 
 abstract class SingupController extends GetxController{
   GlobalKey<FormState> formstate=GlobalKey<FormState>();
