@@ -19,7 +19,7 @@ class SingupControllerImp extends SingupController{
   late TextEditingController username;
   late TextEditingController phone;
   late TextEditingController password;
-  late StatusRequest statusRequest;
+   StatusRequest?statusRequest;
   SignupData signupData = SignupData(Get.find());
 
 
@@ -33,12 +33,15 @@ class SingupControllerImp extends SingupController{
     var formdate=formstate.currentState;
     if(formdate!.validate()){
       statusRequest = StatusRequest.loading;
+      update();
       var response = await signupData.postData(username.text, password.text, email.text, phone.text);
       print("=============================== Controller $response ") ;
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if(response['status']=="success"){
-            Get.offNamed(AppRoutes.verfiyCodesignup);
+            Get.offNamed(AppRoutes.verfiyCodesignup,arguments: {
+              "email":email.text
+            });
         }else{
           Get.defaultDialog(title: "Warning",middleText: "phone Number Or Email Already Exists");
           statusRequest= StatusRequest.failure;

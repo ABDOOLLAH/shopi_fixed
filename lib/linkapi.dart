@@ -3,7 +3,9 @@ class Applink {
  static const String test = "$server/test.php";
 
  //=====================auth===================//
- static const String signUp = "http://192.168.1.114/ecommerce/auth/signup.php";
+ static const String signUp = "http://192.168.1.108/ecommerce/auth/signup.php";
+ static const String Login = "http://192.168.1.108/ecommerce/auth/login.php";
+ static const String Verifycodesignup = "http://192.168.1.108/ecommerce/auth/verfiycode.php";
 
 
 
