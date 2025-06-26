@@ -2,15 +2,14 @@ import 'package:shopi/core/class/crud.dart';
 import 'package:shopi/linkapi.dart';
 
 
-class LoginData {
+class CheckEmailData {
   Crud crud;
 
-  LoginData(this.crud);
+  CheckEmailData(this.crud);
 
-  postData(String password,String email) async {
-    var response = await crud.postData(Applink.Login, {
+  postData( String email ) async {
+    var response = await crud.postData(Applink.checkemail, {
 
-      "password":password,
       "email":email,
     });
     return response.fold((l) => l, (r) => r);

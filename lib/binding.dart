@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
 import 'controller/auth/login_controller.dart';
-import 'controller/auth/resetpassword_controller.dart';
+import 'controller/frogetpassword/resetpassword_controller.dart';
 import 'controller/auth/singup_controller.dart';
-import 'controller/auth/verifycode_controller.dart';
+import 'controller/frogetpassword/verifycode_controller.dart';
 import 'core/class/crud.dart';
 
 class MyBinding extends Bindings {

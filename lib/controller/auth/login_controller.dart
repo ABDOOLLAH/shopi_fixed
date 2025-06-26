@@ -33,7 +33,7 @@ class LoginControllerImp extends LoginController {
     if(formdate!.validate()){
       statusRequest = StatusRequest.loading;
       update();
-      var response = await loginData.postData(email.text, password.text);
+      var response = await loginData.postData(email.text , password.text);
       print("=============================== Controller $response ") ;
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {

@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopi/core/constant/color.dart';
-import 'package:shopi/view/widget/onboarding/auth/logoauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtexttitleauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextbodyauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextformauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 
-import '../../../../../controller/auth/singup_controller.dart';
-import '../../../../controller/auth/resetpassword_controller.dart';
+import '../../../../controller/frogetpassword/resetpassword_controller.dart';
 import '../../../../core/functions/validinput.dart';
-import '../../../widget/onboarding/auth/textsignup.dart';
-import '../../../../controller/auth/forgetpassword_controller.dart';
-
 class Resetpassword extends StatelessWidget {
   const Resetpassword({Key? key}) : super(key: key);
 

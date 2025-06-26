@@ -10,14 +10,14 @@ import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 import '../../../../../controller/auth/singup_controller.dart';
 import '../../../../core/functions/validinput.dart';
 import '../../../widget/onboarding/auth/textsignup.dart';
-import '../../../../controller/auth/forgetpassword_controller.dart';
+import '../../../../controller/frogetpassword/forgetpassword_controller.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ForgetpasswordControllerImp controller = Get.put(ForgetpasswordControllerImp());
+    ForgetPasswordControllerImp controller = Get.put(ForgetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -55,7 +55,7 @@ class ForgetPassword extends StatelessWidget {
             Custombuttonauth(
               text: "Check Up",
               onPressed: () {
-                controller.goToVerfiycode();
+                controller.checkemail();
               },
             ),
 

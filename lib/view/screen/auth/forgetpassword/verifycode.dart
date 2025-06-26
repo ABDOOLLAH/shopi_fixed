@@ -6,7 +6,7 @@ import 'package:shopi/view/widget/onboarding/auth/customtexttitleauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextbodyauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 
-import '../../../../controller/auth/verifycode_controller.dart';
+import '../../../../controller/frogetpassword/verifycode_controller.dart';
 
 class Verifycode extends StatelessWidget {
   const Verifycode({Key? key}) : super(key: key);
@@ -53,7 +53,7 @@ class Verifycode extends StatelessWidget {
                 },
                 // عند ملء جميع الخانات
                 onSubmit: (String verificationCode) {
-                  controller.goToResetPassword();
+                  controller.goToResetPassword(verificationCode);
                 },
               ),
               const SizedBox(height: 20),

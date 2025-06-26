@@ -7,8 +7,8 @@ import 'package:shopi/view/widget/onboarding/auth/customtextbodyauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextformauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 
-import '../../../../controller/auth/forgetpassword_controller.dart';
-import '../../../controller/auth/checkemail_controller.dart';
+import '../../../controller/frogetpassword/forgetpassword_controller.dart';
+import '../../../controller/frogetpassword/checkemail_controller.dart';
 import '../../../core/functions/validinput.dart';
 
 class Checkemail extends StatelessWidget {

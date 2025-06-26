@@ -8,7 +8,7 @@ import 'package:shopi/view/widget/onboarding/auth/customtexttitleauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextbodyauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 
-import '../../../../controller/auth/verifycode_controller.dart';
+import '../../../../controller/frogetpassword/verifycode_controller.dart';
 
 class Verifycodesignup extends StatelessWidget {
   const Verifycodesignup({Key? key}) : super(key: key);
