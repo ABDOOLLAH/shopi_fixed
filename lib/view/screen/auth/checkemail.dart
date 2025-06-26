@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopi/core/constant/color.dart';
-import 'package:shopi/view/widget/onboarding/auth/logoauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtexttitleauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextbodyauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextformauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/custombuttonauth.dart';
 
-import '../../../controller/frogetpassword/forgetpassword_controller.dart';
 import '../../../controller/frogetpassword/checkemail_controller.dart';
 import '../../../core/functions/validinput.dart';
 
