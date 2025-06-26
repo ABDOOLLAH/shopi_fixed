@@ -87,7 +87,7 @@ class Login extends StatelessWidget {
                           child: const Text(
                             "Forget Password?",
                             style: TextStyle(
-                              color: AppColorApp.primaryColor,
+                               color: AppColorApp.primaryColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
