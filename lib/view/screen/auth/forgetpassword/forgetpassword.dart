@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopi/core/class/statusrequest.dart';
 import 'package:shopi/core/constant/color.dart';
 import 'package:shopi/view/widget/onboarding/auth/logoauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtexttitleauth.dart';
@@ -17,7 +18,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgetPasswordControllerImp controller = Get.put(ForgetPasswordControllerImp());
+    Get.put(ForgetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -30,37 +31,49 @@ class ForgetPassword extends StatelessWidget {
           ).textTheme.titleLarge!.copyWith(color: AppColorApp.grey),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
-        child: ListView(
-          children: [
-            const SizedBox(height: 20),
-            const Customtexttitleauth(text: "Chack Email"),
-            const SizedBox(height: 8),
-            const Customtextbodyauth(
-              text: "please Enter Your Email To Receive A verification Code ",
-            ),
+      body: GetBuilder<ForgetPasswordControllerImp>(
+        builder:
+            (controller) =>
+                controller.statusRequest == StatusRequest.loading
+                    ? Center(child: Text('Loding...'))
+                    : Container(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 30,
+                        ),
+                        child: ListView(
+                          children: [
+                            const SizedBox(height: 20),
+                            const Customtexttitleauth(text: "Chack Email"),
+                            const SizedBox(height: 8),
+                            const Customtextbodyauth(
+                              text:
+                                  "please Enter Your Email To Receive A verification Code ",
+                            ),
 
-            Customtextformauth(
-              isNumber: false,
-              valid: (val) {
-                return validInput(val!, 5, 100, "email");
-              },              hinttext: "Enter Your Email",
-              labeltext: "Email",
-              iconData: Icons.email_outlined,
-              mycontroller: controller.email,
-            ),
+                            Customtextformauth(
+                              isNumber: false,
+                              valid: (val) {
+                                return validInput(val!, 5, 100, "email");
+                              },
+                              hinttext: "Enter Your Email",
+                              labeltext: "Email",
+                              iconData: Icons.email_outlined,
+                              mycontroller: controller.email,
+                            ),
 
-            const SizedBox(height: 20),
-            Custombuttonauth(
-              text: "Check Up",
-              onPressed: () {
-                controller.checkemail();
-              },
-            ),
-
-          ],
-        ),
+                            const SizedBox(height: 20),
+                            Custombuttonauth(
+                              text: "Check Up",
+                              onPressed: () {
+                                controller.checkemail();
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
       ),
     );
   }
