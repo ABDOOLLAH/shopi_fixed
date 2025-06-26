@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopi/core/class/statusrequest.dart';
+import 'package:shopi/core/class/handlingdateview.dart';
 import 'package:shopi/core/constant/color.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtexttitleauth.dart';
 import 'package:shopi/view/widget/onboarding/auth/customtextbodyauth.dart';
@@ -30,58 +30,58 @@ class Resetpassword extends StatelessWidget {
       ),
       body: GetBuilder<ResetpasswordControllerImp>(
         builder:
-            (controller) =>
-                controller.statusRequest == StatusRequest.loading
-                    ? Center(child: Text('Loding...'))
-                    : Container(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 15,
-                          vertical: 30,
-                        ),
-                        child: ListView(
-                          children: [
-                            const SizedBox(height: 20),
-                            const Customtexttitleauth(text: "New Password"),
-                            const SizedBox(height: 8),
-                            const Customtextbodyauth(
-                              text: "Please enter new  Password",
-                            ),
-
-                            Customtextformauth(
-                              isNumber: false,
-
-                              valid: (val) {
-                                return validInput(val!, 5, 33, "password");
-                              },
-                              hinttext: "Enter Your New Password",
-                              labeltext: "Password",
-                              iconData: Icons.email_outlined,
-                              mycontroller: controller.repassword,
-                            ),
-                            Customtextformauth(
-                              isNumber: false,
-
-                              valid: (val) {
-                                return validInput(val!, 5, 33, "repassword");
-                              },
-                              hinttext: "Re Enter Your New Password",
-                              labeltext: "Password",
-                              iconData: Icons.email_outlined,
-                              mycontroller: controller.repassword,
-                            ),
-
-                            const SizedBox(height: 20),
-                            Custombuttonauth(
-                              text: "Save",
-                              onPressed: () {
-                                controller.goToSuccessResetPassword();
-                              },
-                            ),
-                          ],
-                        ),
+            (controller) => HandlingDataRequest(
+              statusRequest: controller.statusRequest!,
+              widget: Container(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 30,
+                  ),
+                  child: ListView(
+                    children: [
+                      const SizedBox(height: 20),
+                      const Customtexttitleauth(text: "New Password"),
+                      const SizedBox(height: 8),
+                      const Customtextbodyauth(
+                        text: "Please enter new  Password",
                       ),
-                    ),
+
+                      Customtextformauth(
+                        isNumber: false,
+
+                        valid: (val) {
+                          return validInput(val!, 5, 33, "password");
+                        },
+                        hinttext: "Enter Your New Password",
+                        labeltext: "Password",
+                        iconData: Icons.email_outlined,
+                        mycontroller: controller.repassword,
+                      ),
+                      Customtextformauth(
+                        isNumber: false,
+
+                        valid: (val) {
+                          return validInput(val!, 5, 33, "repassword");
+                        },
+                        hinttext: "Re Enter Your New Password",
+                        labeltext: "Password",
+                        iconData: Icons.email_outlined,
+                        mycontroller: controller.repassword,
+                      ),
+
+                      const SizedBox(height: 20),
+                      Custombuttonauth(
+                        text: "Save",
+                        onPressed: () {
+                          controller.goToSuccessResetPassword();
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
       ),
     );
   }
