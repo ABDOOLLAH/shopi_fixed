@@ -8,6 +8,10 @@ class Applink {
  static const String Verifycodesignup = "http://192.168.1.108/ecommerce/auth/verfiycode.php";
 
 
+//=====================FrogetPassword===================//
+ static const String ChekEmail = "http://192.168.1.108/ecommerce/forgetpasseord/chekemail.php";
+ static const String resetpassword = "http://192.168.1.108/ecommerce/forgetpasseord/resetpassword.php";
+ static const String verifycode = "http://192.168.1.108/ecommerce/forgetpasseord/verifycode.php";
 
 
 
