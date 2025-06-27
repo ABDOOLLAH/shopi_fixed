@@ -17,7 +17,7 @@ class SingupControllerImp extends SingupController{
   late TextEditingController username;
   late TextEditingController phone;
   late TextEditingController password;
-   StatusRequest?statusRequest;
+  StatusRequest statusRequest=StatusRequest.none;
   SignupData signupData = SignupData(Get.find());
 
 

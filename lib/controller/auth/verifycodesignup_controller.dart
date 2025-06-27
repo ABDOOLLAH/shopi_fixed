@@ -7,7 +7,7 @@ import 'package:shopi/data/datesource/static/remot/auth/verifycodesiginup.dart';
 
 abstract class VerifycodesignupController extends GetxController {
   String? email;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest=StatusRequest.none;
   checCode();
 
   goTosuccessSignUp(String verfiyCodeSignUp);
