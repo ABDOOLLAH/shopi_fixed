@@ -12,7 +12,7 @@ abstract class VerifycodeController extends GetxController {
 
   goToResetPassword(verfiycode);
 }
-
+//3y5Uqz6Nnst9
 class VerifycodeControllerImp extends VerifycodeController {
   String? email;
   StatusRequest statusRequest=StatusRequest.none;
