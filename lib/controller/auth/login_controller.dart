@@ -33,12 +33,20 @@ class LoginControllerImp extends LoginController {
   login() async{
     var formdate = formstate.currentState;
     if(formdate!.validate()){
-      statusRequest = StatusRequest.loading;
+      myServices.sharedPreferences.setString("password",  password.text);
+      myServices.sharedPreferences.setString("email", email.text);
+      print("email$email.text" ) ;
+      print("password$password.text" ) ;
+
+      myServices.sharedPreferences.setString("step", "2");
+      Get.offNamed(AppRoutes.home);
+      /*   statusRequest = StatusRequest.loading;
       update();
       var response = await loginData.postData(email.text , password.text);
       print("=============================== Controller $response ") ;
       statusRequest = handlingData(response);
-      if (StatusRequest.success == statusRequest) {
+
+     if (StatusRequest.success == statusRequest) {
         if(response['status']=="success"){
           myServices.sharedPreferences.setString("id", response['data']['user_id']);
           myServices.sharedPreferences.setString("username", response['data']['user_user_name']);
@@ -50,7 +58,7 @@ class LoginControllerImp extends LoginController {
           Get.defaultDialog(title: "Warning",middleText: "Email or password not corretto");
           statusRequest= StatusRequest.failure;
         }
-      }
+      }*/
       update();
 
     } else {}
