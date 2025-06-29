@@ -4,6 +4,7 @@ import 'package:shopi/core/class/statusrequest.dart';
 import 'package:shopi/core/constant/routes.dart';
 import 'package:shopi/core/functions/handlingdatecontroller.dart';
 import 'package:shopi/data/datesource/static/remot/auth/login.dart';
+import 'package:shopi/services/services.dart';
 
 abstract class LoginController extends GetxController {
   login();
@@ -18,6 +19,7 @@ class LoginControllerImp extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
   bool isshowpassword = true;
+  MyServices myServices=Get.find();
   StatusRequest statusRequest=StatusRequest.none;
   LoginData loginData = LoginData(Get.find());
 
@@ -38,6 +40,11 @@ class LoginControllerImp extends LoginController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if(response['status']=="success"){
+          myServices.sharedPreferences.setString("id", response['data']['user_id']);
+          myServices.sharedPreferences.setString("username", response['data']['user_user_name']);
+          myServices.sharedPreferences.setString("email", response['data']['user_email']);
+          myServices.sharedPreferences.setString("phone", response['data']['user_phone']);
+          myServices.sharedPreferences.setString("step", "2");
           Get.offNamed(AppRoutes.home);
         }else{
           Get.defaultDialog(title: "Warning",middleText: "Email or password not corretto");
