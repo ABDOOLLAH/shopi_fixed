@@ -8,16 +8,16 @@ import 'package:shopi/linkapi.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
+/*  HandlingDataView(
+  statusRequest: controller.statusRequest,
+  widget:*/
   @override
   Widget build(BuildContext context) {
     Get.put(HomeControllerImp());
     return Scaffold(
       body: GetBuilder<HomeControllerImp>(
         builder:
-            (controller) => HandlingDataView(
-              statusRequest: controller.statusRequest,
-              widget: Container(
+            (controller) => Container(
                 child: ListView(
                   children: [
                     Container(
@@ -115,7 +115,7 @@ class Home extends StatelessWidget {
                           return Container(
                             decoration: BoxDecoration(
                               color: AppColorApp.thirdColor,
-                              borderRadius: BorderRadius.circular(20);
+                              borderRadius: BorderRadius.circular(20),
                             ),
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             height: 70,
@@ -131,7 +131,7 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
+
       ),
     );
   }

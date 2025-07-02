@@ -21,8 +21,8 @@ class Applink {
 
   //========================== Image ============================
   static const String imageststatic =
-      "https://waelabohamza.com/ecommerce/upload";
-  static const String imagestCategories = "$imageststatic/categories";
+      "http://192.168.1.108";
+  static const String imagestCategories = "http://192.168.1.108/categories/";
   static const String imagestItems = "$imageststatic/items";
   // =============================================================
   //
