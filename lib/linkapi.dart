@@ -1,29 +1,22 @@
 class Applink {
-  static const String server = "http://localhost/ecommerce";
+  static const String server = "http://192.168.1.110/ecommerce";
   static const String test = "$server/test.php";
 
   //=====================auth===================//
-  static const String signUp = "http://192.168.1.108/ecommerce/auth/signup.php";
-  static const String Login = "http://192.168.1.108/ecommerce/auth/login.php";
-  static const String Verifycodesignup =
-      "http://192.168.1.108/ecommerce/auth/verfiycode.php";
+  static const String signUp = "$server/auth/signup.php";
+  static const String login = "$server/auth/login.php";
+  static const String verifyCodeSignup = "$server/auth/verfiycode.php";
 
-  //=====================FrogetPassword===================//
-  static const String checkemail =
-      "http://192.168.1.108/ecommerce/forgetpasseord/checkemail.php";
-  static const String resetpassword =
-      "http://192.168.1.108/ecommerce/forgetpasseord/resetpassword.php";
-  static const String verifycode =
-      "http://192.168.1.108/ecommerce/forgetpasseord/verifycode.php";
+  //=====================ForgetPassword===================//
+  static const String checkEmail = "$server/forgetpasseord/checkemail.php";
+  static const String resetPassword = "$server/forgetpasseord/resetpassword.php";
+  static const String verifyCode = "$server/forgetpasseord/verifycode.php";
 
   //=====================home===================//
-  static const String homepage = "http://192.168.1.108/ecommerce/home.php";
+  static const String homepage = "$server/home.php";
 
-  //========================== Image ============================
-  static const String imageststatic =
-      "http://192.168.1.108";
-  static const String imagestCategories = "http://192.168.1.108/categories";
-  static const String imagestItems = "$imageststatic/items";
-  // =============================================================
-  //
+  //========================== Image ============================//
+  static const String imagesStatic = "http://192.168.1.110";
+  static const String imagesCategories = "$imagesStatic/categories";
+  static const String imagesItems = "$imagesStatic/items";
 }

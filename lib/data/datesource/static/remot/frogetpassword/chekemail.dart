@@ -8,7 +8,7 @@ class CheckEmailData {
   CheckEmailData(this.crud);
 
   postData( String email ) async {
-    var response = await crud.postData(Applink.checkemail, {
+    var response = await crud.postData(Applink.checkEmail, {
 
       "email":email,
     });
