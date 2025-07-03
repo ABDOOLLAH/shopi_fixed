@@ -8,16 +8,17 @@ import 'package:shopi/linkapi.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
-/*  HandlingDataView(
-  statusRequest: controller.statusRequest,
-  widget:*/
+
+  /* :*/
   @override
   Widget build(BuildContext context) {
     Get.put(HomeControllerImp());
     return Scaffold(
       body: GetBuilder<HomeControllerImp>(
         builder:
-            (controller) => Container(
+            (controller) => HandlingDataView(
+              statusRequest: controller.statusRequest,
+              widget: Container(
                 child: ListView(
                   children: [
                     Container(
@@ -106,32 +107,51 @@ class Home extends StatelessWidget {
                     Container(
                       height: 70,
 
-                      child: ListView.separated(
-                        separatorBuilder:
-                            (context, index) => SizedBox(width: 10),
-                        itemCount: controller.categories.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              color: AppColorApp.thirdColor,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            height: 70,
-                            width: 70,
-                            child: SvgPicture.network(
-                              "${Applink.imagestCategories}/${controller.categories[index]['categories_image']}",
-                              color: AppColorApp.secoundColor,
-                            ),
-                          );
-                        },
+                      child: SizedBox(
+                        height: 100,
+                        child: ListView.separated(
+                          separatorBuilder:
+                              (context, index) => const SizedBox(width: 10),
+                          itemCount: controller.categories.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: AppColorApp.thirdColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                  ),
+                                  height: 70,
+                                  width: 70,
+                                  child: SvgPicture.network(
+                                    "${Applink.imagestCategories}/${controller.categories[index]['categories_image']}",
+                                    height: 70,
+                                    width: 70,
+                                    color: AppColorApp.secoundColor,
+                                    placeholderBuilder: (context) => CircularProgressIndicator(),
+                                  )
+                                ),
+                                Text(
+                                  "${controller.categories[index]['categories_name']}",
+                                  style: const TextStyle(
+                                    fontSize: 13,
+                                    color: AppColorApp.black,
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-
+            ),
       ),
     );
   }

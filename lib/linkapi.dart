@@ -22,7 +22,7 @@ class Applink {
   //========================== Image ============================
   static const String imageststatic =
       "http://192.168.1.108";
-  static const String imagestCategories = "http://192.168.1.108/categories/";
+  static const String imagestCategories = "http://192.168.1.108/categories";
   static const String imagestItems = "$imageststatic/items";
   // =============================================================
   //
