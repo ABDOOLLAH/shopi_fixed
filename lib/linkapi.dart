@@ -1,5 +1,5 @@
 class Applink {
-  static const String server = "http://192.168.1.110/ecommerce";
+  static const String server = "http://192.168.1.113/ecommerce";
   static const String test = "$server/test.php";
 
   //=====================auth===================//

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shopi/binding.dart';
-
 import 'package:shopi/services/services.dart';
 import 'package:shopi/routes.dart';
-
 import 'package:shopi/localization/translation.dart';
 import 'package:shopi/localization/changelocal.dart'; // مصدر LocaleController
 
@@ -19,25 +18,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  LocaleController controller = Get.put(LocaleController());
+    LocaleController controller = Get.put(LocaleController());
 
-  return GetMaterialApp(
-  debugShowCheckedModeBanner: false,
-  title: "chopi",
-  translations: MyTranslation(),
-  locale: controller.language,
-  theme: controller.apptheme,
-  initialBinding: MyBinding(),
-  getPages: routes,
+    return ScreenUtilInit(
+      designSize: const Size(360, 690), // هذا مقاس التصميم الافتراضي
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: "shopi",
+          translations: MyTranslation(),
+          locale: controller.language,
+          theme: controller.apptheme,
+          initialBinding: MyBinding(),
+          getPages: routes,
 
-  // هنا نضيف builder لإجبار الاتجاه
-  builder: (context, child) {
-  return Directionality(
-  textDirection: TextDirection.ltr, // أو TextDirection.rtl للـ RTL
-  child: child!,
-  );
-  },
-  );
+          // Directionality + ScreenUtil integration
+          builder: (context, child) {
+            return Directionality(
+              textDirection: controller.language?.languageCode == 'ar'
+                  ? TextDirection.rtl
+                  : TextDirection.ltr,
+              child: child!,
+            );
+          },
+        );
+      },
+    );
   }
-  }
-
+}
