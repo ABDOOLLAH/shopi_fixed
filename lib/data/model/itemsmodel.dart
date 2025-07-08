@@ -1,80 +1,85 @@
+// lib/data/model/itemsmodel.dart
+
 class ItemsModel {
-  String? itemsId;
-  String? itemsName;
-  String? itemsNameAr;
-  String? itemsDesc;
-  String? itemsDescAr;
-  String? itemsImage;
-  String? itemsCount;
-  String? itemsActive;
-  String? itemsPrice;
-  String? itemsDiscount;
-  String? itemsDate;
-  String? itemsCat;
-  String? categoriesId;
-  String? categoriesName;
-  String? categoriesNamaAr;
-  String? categoriesImage;
-  String? categoriesDatetime;
+  final String itemsId;
+  final String itemsName;
+  final String itemsNameAr;
+  final String itemsDesc;
+  final String itemsDescAr;
+  final String itemsImage;
+  final String itemsCount;
+  final String itemsActive;
+  final String itemsPrice;
+  final String itemsDiscount;
+  final String itemsDate;
+  final String itemsCat;
+  final String categoriesId;
+  final String categoriesName;
+  final String categoriesNameAr;
+  final String categoriesImage;
+  final String categoriesDatetime;
 
-  ItemsModel(
-      {this.itemsId,
-        this.itemsName,
-        this.itemsNameAr,
-        this.itemsDesc,
-        this.itemsDescAr,
-        this.itemsImage,
-        this.itemsCount,
-        this.itemsActive,
-        this.itemsPrice,
-        this.itemsDiscount,
-        this.itemsDate,
-        this.itemsCat,
-        this.categoriesId,
-        this.categoriesName,
-        this.categoriesNamaAr,
-        this.categoriesImage,
-        this.categoriesDatetime});
+  ItemsModel({
+    required this.itemsId,
+    required this.itemsName,
+    required this.itemsNameAr,
+    required this.itemsDesc,
+    required this.itemsDescAr,
+    required this.itemsImage,
+    required this.itemsCount,
+    required this.itemsActive,
+    required this.itemsPrice,
+    required this.itemsDiscount,
+    required this.itemsDate,
+    required this.itemsCat,
+    required this.categoriesId,
+    required this.categoriesName,
+    required this.categoriesNameAr,
+    required this.categoriesImage,
+    required this.categoriesDatetime,
+  });
 
-  ItemsModel.fromJson(Map<String, dynamic> json) {
-    itemsId = json['items_id'];
-    itemsName = json['items_name'];
-    itemsNameAr = json['items_name_ar'];
-    itemsDesc = json['items_desc'];
-    itemsDescAr = json['items_desc_ar'];
-    itemsImage = json['items_image'];
-    itemsCount = json['items_count'];
-    itemsActive = json['items_active'];
-    itemsPrice = json['items_price'];
-    itemsDiscount = json['items_discount'];
-    itemsDate = json['items_date'];
-    itemsCat = json['items_cat'];
-    categoriesId = json['categories_id'];
-    categoriesName = json['categories_name'];
-    categoriesNamaAr = json['categories_nama_ar'];
-    categoriesImage = json['categories_image'];
-    categoriesDatetime = json['categories_datetime'];
+  factory ItemsModel.fromJson(Map<String, dynamic> json) {
+    return ItemsModel(
+      itemsId: json['items_id'].toString(),
+      itemsName: json['items_name'].toString(),
+      itemsNameAr: json['items_name_ar'].toString(),
+      itemsDesc: json['items_desc'].toString(),
+      itemsDescAr: json['items_desc_ar'].toString(),
+      itemsImage: json['items_image'].toString(),
+      itemsCount: json['items_count'].toString(),
+      itemsActive: json['items_activ'].toString(),
+      itemsPrice: json['items_price'].toString(),
+      itemsDiscount: json['items_discount'].toString(),
+      itemsDate: json['items_data'].toString(),
+      itemsCat: json['items_cat'].toString(),
+      categoriesId: json['categories_id'].toString(),
+      categoriesName: json['categories_name'].toString(),
+      categoriesNameAr: json['categories_name_ar'].toString(),
+      categoriesImage: json['categories_image'].toString(),
+      categoriesDatetime: json['categories_datatime'].toString(),
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['items_id'] = this.itemsId;
-    data['items_name'] = this.itemsName;
-    data['items_name_ar'] = this.itemsNameAr;
-    data['items_desc'] = this.itemsDesc;
-    data['items_desc_ar'] = this.itemsDescAr;
-    data['items_image'] = this.itemsImage;
-    data['items_count'] = this.itemsCount;
-    data['items_active'] = this.itemsActive;
-    data['items_price'] = this.itemsPrice;
-    data['items_discount'] = this.itemsDiscount;
-    data['items_date'] = this.itemsDate;
-    data['items_cat'] = this.itemsCat;
-    data['categories_id'] = this.categoriesId;
-    data['categories_name'] = this.categoriesName;
-    data['categories_nama_ar'] = this.categoriesNamaAr;
-    data['categories_image'] = this.categoriesImage;
-    data['categories_datetime'] = this.categoriesDatetime;
-    return data;
+    return {
+      'items_id':        itemsId,
+      'items_name':      itemsName,
+      'items_name_ar':   itemsNameAr,
+      'items_desc':      itemsDesc,
+      'items_desc_ar':   itemsDescAr,
+      'items_image':     itemsImage,
+      'items_count':     itemsCount,
+      'items_activ':     itemsActive,
+      'items_price':     itemsPrice,
+      'items_discount':  itemsDiscount,
+      'items_data':      itemsDate,
+      'items_cat':       itemsCat,
+      'categories_id':        categoriesId,
+      'categories_name':      categoriesName,
+      'categories_name_ar':   categoriesNameAr,
+      'categories_image':     categoriesImage,
+      'categories_datatime':  categoriesDatetime,
+    };
   }
 }

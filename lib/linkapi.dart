@@ -1,22 +1,20 @@
 class Applink {
-  static const String server = "http://192.168.1.113/ecommerce";
-  static const String test = "$server/test.php";
+  static const String host = "http://192.168.1.114/ecommerce";
 
-  //=====================auth===================//
-  static const String signUp = "$server/auth/signup.php";
-  static const String login = "$server/auth/login.php";
-  static const String verifyCodeSignup = "$server/auth/verfiycode.php";
+  static const String test = "$host/test.php";
 
-  //=====================ForgetPassword===================//
-  static const String checkEmail = "$server/forgetpasseord/checkemail.php";
-  static const String resetPassword = "$server/forgetpasseord/resetpassword.php";
-  static const String verifyCode = "$server/forgetpasseord/verifycode.php";
+  // صحح upload → uploads
+  static const String imageBase       = "$host/uploads";
+  static const String imageCategories = "$imageBase/categories";
+  static const String imageItems      = "$imageBase/items";
 
-  //=====================home===================//
-  static const String homepage = "$server/home.php";
+  static const String signUp       = "$host/auth/signup.php";
+  static const String login        = "$host/auth/login.php";
+  static const String verifySignUp = "$host/auth/verifycode.php";
 
-  //========================== Image ============================//
-  static const String imagesStatic = "http://192.168.1.110";
-  static const String imagesCategories = "$imagesStatic/categories";
-  static const String imagesItems = "$imagesStatic/items";
+  static const String checkEmail   = "$host/forgetpassword/checkemail.php";
+  static const String verifyCodeFP = "$host/forgetpassword/verifycode.php";
+  static const String resetPassword= "$host/forgetpassword/resetpassword.php";
+
+  static const String home = "$host/home.php";
 }

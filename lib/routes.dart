@@ -10,6 +10,7 @@ import 'package:shopi/view/screen/auth/signup.dart';
 import 'package:shopi/view/screen/auth/forgetpassword/success_signup.dart';
 import 'package:shopi/view/screen/auth/forgetpassword/verifycode.dart';
 import 'package:shopi/view/screen/home.dart';
+import 'package:shopi/view/screen/homescreen.dart';
 
 import 'view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'core/constant/routes.dart';
@@ -36,5 +37,5 @@ List<GetPage<dynamic>>? routes = [
   ),
   GetPage(name: AppRoutes.successSignUp, page: () => const SuccessSignup()),
   GetPage(name: AppRoutes.onBoarding, page: () => const Onboarding()),
-  GetPage(name: AppRoutes.home, page: () => const Home()),
+  GetPage(name: AppRoutes.home, page: () => const Homescreen()),
 ];

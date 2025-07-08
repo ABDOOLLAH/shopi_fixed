@@ -7,7 +7,7 @@ class VerifyCodeForgetPasswordData {
   VerifyCodeForgetPasswordData(this.crud);
 
   postData(String email, String verifycode) async {
-    var response = await crud.postData(Applink.verifyCode, {
+    var response = await crud.postData(Applink.verifyCodeFP, {
       "email": email,
       "verifycode": verifycode,
     });

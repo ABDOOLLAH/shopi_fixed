@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
       builder:
           (controller) => HandlingDataView(
             statusRequest: controller.statusRequest,
-            widget: Container(
+            widget: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: ListView(
                 children: [

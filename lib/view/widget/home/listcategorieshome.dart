@@ -46,7 +46,7 @@ class Categories extends StatelessWidget {
           height: 70.h,
           width: 70.w,
           child: SvgPicture.network(
-            "${Applink.imagesCategories}/${categoriesModel.categoriesImage}",
+            "${Applink.imageCategories}/${categoriesModel.categoriesImage}",
             color: AppColorApp.secoundColor,
           ),
         ),
