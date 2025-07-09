@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:shopi/controller/homescreen_controller.dart';
+import 'package:shopi/core/constant/color.dart';
+import 'package:shopi/view/widget/home/custombottonappbarhome.dart';
 
 import '../widget/home/custombottonappbar.dart';
 
@@ -10,67 +12,17 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(Homescreen_controllerImp());
-    return GetBuilder<Homescreen_controllerImp>(
-      builder:
-          (controller) => Scaffold(
-            floatingActionButton: FloatingActionButton(
+    Get.put(HomeScreenControllerImp());
+    return GetBuilder<HomeScreenControllerImp>(
+        builder: (controller) => Scaffold(
+          floatingActionButton: FloatingActionButton(
+              backgroundColor: AppColorApp.primaryColor,
               onPressed: () {},
-              child: Icon(Icons.shopping_basket_outlined),
-            ),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
-            floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-            bottomNavigationBar: BottomAppBar(
-              shape: CircularNotchedRectangle(),
-              notchMargin: 10,
-
-              child: Row(
-                children: [
-                  Row(
-                    children: [
-                      CustomButtonAppBar(
-                        text: 'Home',
-                        colorItemSelected: Colors.black,
-
-                        iconData: Icons.home,
-                        onPressed: controller.changePage(0),
-                        active: controller.currentpage==0?true:false,
-                      ),
-                      CustomButtonAppBar(
-                        text: 'Home',
-                        colorItemSelected: Colors.black,
-
-                        iconData: Icons.home,
-                        onPressed: controller.changePage(1),
-                        active: controller.currentpage==1?true:false,                      ),
-                    ],
-                  ),
-                  Spacer(),
-                  Row(
-                    children: [
-                      CustomButtonAppBar(
-                        text: 'Home',
-                        colorItemSelected: Colors.black,
-
-                        iconData: Icons.home,
-                        onPressed: controller.changePage(2),
-                        active: controller.currentpage==2?true:false,
-                      ),
-                      CustomButtonAppBar(
-                        text: 'Home',
-                        iconData: Icons.home,
-                        colorItemSelected: Colors.black,
-                        onPressed: controller.changePage(3),
-                        active: controller.currentpage==3?true:false,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            body: controller.listPage.elementAt(controller.currentpage),
-          ),
-    );
+              child: const Icon(Icons.shopping_basket_outlined)),
+          floatingActionButtonLocation:
+          FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: const CustomBottomAppBarHome(),
+          body: controller.listPage.elementAt(controller.currentpage),
+        ));
   }
 }

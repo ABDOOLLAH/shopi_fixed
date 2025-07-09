@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 
 import '../view/screen/home.dart';
 
-abstract class Homescreen_controller extends GetxController {
+abstract class HomeScreenController extends GetxController {
   changePage(int currentpage);
 }
 
-class Homescreen_controllerImp extends Homescreen_controller {
+class HomeScreenControllerImp extends HomeScreenController {
   int currentpage = 0;
 
   List<Widget> listPage = [
@@ -24,6 +24,13 @@ class Homescreen_controllerImp extends Homescreen_controller {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [Center(child: Text("Favorite"))],
     )
+  ];
+  List titlebottmappbar=[
+
+    "home",
+    "settings",
+    "profile",
+    "favorite"
   ];
   @override
   changePage(int i) {
