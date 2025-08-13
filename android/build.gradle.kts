@@ -1,8 +1,9 @@
 // Top‐level build.gradle.kts
 
 plugins {
-    // إضافة المكوّن الخاص بخدمات Google (Google Services) مع apply=false
     id("com.google.gms.google-services") version "4.4.3" apply false
+    id("org.jetbrains.kotlin.android") version "2.2.0" apply false
+    id("com.android.application") version "8.7.0" apply false  // تحديث الإصدار ليتطابق مع settings.gradle.kts
 }
 
 allprojects {

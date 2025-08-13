@@ -1,11 +1,7 @@
-// app/build.gradle.kts
-
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    id("org.jetbrains.kotlin.android")  // Version managed by top-level file
     id("dev.flutter.flutter-gradle-plugin")
-
-    // إضافة مكوّن Google services
     id("com.google.gms.google-services")
 }
 
@@ -15,13 +11,13 @@ android {
     ndkVersion = "27.0.12077973"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
         isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopi/controller/home_controller.dart';
 import 'package:shopi/core/class/handlingdateview.dart';
-import 'package:shopi/view/widget/home/customappbar.dart';
+import 'package:shopi/view/widget/customappbar.dart';
 import 'package:shopi/view/widget/home/customcardhome.dart';
 import 'package:shopi/view/widget/home/customtitlehome.dart';
 import 'package:shopi/view/widget/home/listcategorieshome.dart';

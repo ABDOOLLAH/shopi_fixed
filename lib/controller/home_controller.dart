@@ -1,12 +1,16 @@
 import 'package:shopi/core/class/statusrequest.dart';
 import 'package:get/get.dart';
+import 'package:shopi/core/constant/routes.dart';
 import 'package:shopi/core/functions/handlingdatecontroller.dart';
 import 'package:shopi/data/datesource/static/remot/homedata.dart';
 import 'package:shopi/services/services.dart';
 
 abstract class HomeController extends GetxController {
   initialData();
+
   getdata();
+
+  goToItems(List categories, selectedCat);
 }
 
 class HomeControllerImp extends HomeController {
@@ -20,6 +24,7 @@ class HomeControllerImp extends HomeController {
   // List data = [];
   List categories = [];
   List items = [];
+
   // List items = [];
 
   late StatusRequest statusRequest;
@@ -28,6 +33,14 @@ class HomeControllerImp extends HomeController {
   initialData() {
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
+  }
+
+  @override
+  goToItems(categories, selectedCat) {
+    Get.toNamed(
+      AppRoutes.items,
+      arguments: {"categories": categories, "selectedCat": selectedCat},
+    );
   }
 
   @override

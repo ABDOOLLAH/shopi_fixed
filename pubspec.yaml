@@ -13,7 +13,6 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # Time and Date
-  intl: 0.19.0
   # HTTP
   http: ^1.4.0
 
@@ -30,7 +29,7 @@ dependencies:
   flutter_polyline_points: ^2.1.0
   google_maps_flutter: ^2.12.2
   geolocator_android: ^5.0.1+1
-  geocoding: ^3.0.0
+  geocoding: ^4.0.0
 
   # Firebase & Notifications
   firebase_messaging: ^15.2.6
@@ -59,7 +58,7 @@ dependencies:
   responsive_builder: ^0.7.1
 
   # Auth
-  google_sign_in: ^6.3.0
+  google_sign_in: ^7.1.0
 
   # State Management
   get: ^4.7.2
@@ -70,10 +69,11 @@ dependencies:
   lottie: ^3.3.1
   flutter_screenutil: ^5.9.3
   google_fonts: ^6.1.0
+  intl: 0.20.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true

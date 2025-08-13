@@ -3,12 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shopi/controller/home_controller.dart';
+import 'package:shopi/controller/items_controller.dart';
 import 'package:shopi/core/constant/color.dart';
 import 'package:shopi/data/model/categoriesmodel.dart';
 import 'package:shopi/linkapi.dart';
 
-class ListCategoriesHome extends GetView<HomeControllerImp> {
-  const ListCategoriesHome({Key? key}) : super(key: key);
+class ListCategoriesItems extends GetView<ItemsControllerImp> {
+  const ListCategoriesItems({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +21,18 @@ class ListCategoriesHome extends GetView<HomeControllerImp> {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Categories(
-            i:index,
-            categoriesModel:
-            CategoriesModel.fromJson(controller.categories[index]),
+            i: index,
+            categoriesModel: CategoriesModel.fromJson(
+              controller.categories[index],
+            ),
           );
         },
       ),
     );
   }
 }
-class Categories extends GetView<HomeControllerImp> {
+
+class Categories extends GetView<ItemsControllerImp> {
   final CategoriesModel categoriesModel;
   final int? i;
 
@@ -40,31 +43,26 @@ class Categories extends GetView<HomeControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        controller.goToItems(controller.categories, i!);
+        //  controller.goToItems(controller.categories,i!);
+        controller.changeCat(i!);
       },
       child: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color: AppColorApp.thirdColor,
-              borderRadius: BorderRadius.circular(20.r),
-            ),
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            height: 70.h,
-            width: 70.w,
-            child: SvgPicture.network(
-              "${Applink.imageCategories}/${categoriesModel.categoriesImage}",
-              color: AppColorApp.secoundColor,
-            ),
-          ),
-          SizedBox(height: 5.h),
-          Text(
-            categoriesModel.categoriesName!,
-            style: TextStyle(
-              fontSize: 13.sp,
-              color: AppColorApp.black,
-            ),
-          ),
+          GetBuilder<ItemsControllerImp>(builder: (controller) =>
+              Container(
+                padding: EdgeInsets.only(right: 10,left: 10,bottom: 5),
+                decoration: controller.selectedCat == i ? BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                        width: 3, color: AppColorApp.primaryColor),
+                  ),
+                ):null,
+                child: Text(
+                  categoriesModel.categoriesName!,
+                  style: TextStyle(fontSize: 20.sp, color: AppColorApp.black),
+                ),
+              ),
+    ),
         ],
       ),
     );
